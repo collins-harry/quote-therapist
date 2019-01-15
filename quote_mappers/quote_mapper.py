@@ -91,9 +91,9 @@ def getDocvectors(quotes, model):
         return vectors
 
 def getQuoteForInput(input, model):
-    quotes = loadQuotes("qoutes/wiseoldsayings.json")
+    quotes = loadQuotes("quotes/wiseoldsayings.json")
     if full_dataset:
-        quotes.extend(loadQuotes("qoutes/quoteland.json"))
+        quotes.extend(loadQuotes("quotes/quoteland.json"))
 
     vectors = getDocvectors(quotes, model)
 

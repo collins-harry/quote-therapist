@@ -55,14 +55,14 @@ def getSimiliarity(input, quote):
 
 
 def getQuoteForInput(input):
-    quotes = loadQuotes("qoutes/wiseoldsayings.json")
+    quotes = loadQuotes("quotes/wiseoldsayings.json")
     if full_dataset:
-        quotes.extend(loadQuotes("qoutes/quoteland.json"))
+        quotes.extend(loadQuotes("quotes/quoteland.json"))
 
     best_vectors = []
     for index, quote in enumerate(quotes):
         if index%100 ==0:
-            print(f'qoutes_processed: {index}')
+            print(f'quotes_processed: {index}')
         quote = quote["poem"]
         simil = getSimiliarity(input, quote)
         best_vectors.append([quote, simil])
