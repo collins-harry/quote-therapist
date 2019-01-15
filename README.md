@@ -1,0 +1,2 @@
+# qoute_therapist
+AI providing inspirational and nuanced advice regarding user proposed problems given in natural language
