@@ -1,9 +1,9 @@
 import nltk
 from nltk import word_tokenize
-nltk.download('stopwords')
 from nltk.corpus import stopwords
 
 nltk.download("punkt")
+nltk.download('stopwords')
 nltk.download('averaged_perceptron_tagger')
 nltk.download('universal_tagset')
 
@@ -23,8 +23,8 @@ def get_keywords(text, keyword_tags = ['NOUN'], wordnet = False, stop_words = Fa
     
     # using stopwords method of getting keywords
     if stop_words == True:
-        stopwords = set(stopwords.words('english'))
-        keywords = [x for x in text.lower().split() if x not in stopwords]
+        stopword_set = set(stopwords.words('english'))
+        keywords = [x for x in text.lower().split() if x not in stopword_set]
         return keywords
 
     # different requirements if using wordnet similiarity model vs word vector.
@@ -36,5 +36,5 @@ def get_keywords(text, keyword_tags = ['NOUN'], wordnet = False, stop_words = Fa
     return keywords
 
 if __name__ == '__main__':
-    print(get_keywords('I love to eat jumbo prawns', keyword_tags = ['NOUN', 'VERB']))
+    print(get_keywords('I love to eat jumbo prawns', keyword_tags = ['NOUN', 'VERB'], stop_words = True))
 
