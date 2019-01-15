@@ -21,6 +21,12 @@ stopwords = set(stopwords.words('english'))
 dimensions = 100
 full_dataset = False
 
+def main():
+    input_quote = input('quote: ')
+    output_quote = getQuoteForInput(quote)
+    print(output_quote)
+    
+
 def getDictionary(quotes):
     path = current_dir + "dictionary/freq_dic.p"
     if os.path.exists(path):
@@ -126,4 +132,6 @@ def getQuoteForInput(input, model):
         if len(quote.split()) > 4:
             return quote
 
+if __name__ == '__main__':
+    main()
 
