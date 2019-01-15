@@ -1,5 +1,7 @@
 import nltk
 from nltk import word_tokenize
+nltk.download('stopwords')
+from nltk.corpus import stopwords
 
 nltk.download("punkt")
 nltk.download('averaged_perceptron_tagger')
@@ -10,7 +12,7 @@ nltk.download('universal_tagset')
 #print(f'word, tags (universal): {wordtags_universal}')
 #wordtags_treebank = nltk.pos_tag(words)
 
-def get_keywords(text, keyword_tags = ['NOUN'], wordnet = False):
+def get_keywords(text, keyword_tags = ['NOUN'], wordnet = False, stopwords = False):
     """returns: an array of all words with specified pos_tags 
     params: 
         text -- string 
@@ -19,6 +21,12 @@ def get_keywords(text, keyword_tags = ['NOUN'], wordnet = False):
     words = nltk.word_tokenize(text)
     tagged_words = nltk.pos_tag(words, tagset='universal')
     
+    # using stopwords method of getting keywords
+    if stopwords:
+        stopwords = set(stopwords.words('english'))
+        keywords = [x for x in text.lower().split() if x not in stopwords]
+        return keywords
+
     # different requirements if using wordnet similiarity model vs word vector.
     if wordnet:
         keywords = [(word, tag) for word, tag in tagged_words if tag in keyword_tags]
