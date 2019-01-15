@@ -4,7 +4,7 @@ import json
 import numpy as np
 from time import sleep
 from string import punctuation
-from keywords.get_keywords import get_keywords
+from qoute_functions.get_keywords import get_keywords
 from nltk.corpus import stopwords
 import nltk
 from collections import defaultdict
@@ -15,13 +15,14 @@ from datetime import datetime
 nltk.download('stopwords')
 
 script_dir = os.path.dirname(os.path.realpath(__file__))
+current_dir = os.getcwd()
 stopwords = set(stopwords.words('english'))
 
 dimensions = 100
 full_dataset = False
 
 def getDictionary(quotes):
-    path = script_dir + "dictionary/freq_dic.p"
+    path = current_dir + "dictionary/freq_dic.p"
     if os.path.exists(path):
         with open(path, 'rb') as f:
             freq_dic = pickle.load(f)
@@ -38,7 +39,7 @@ def getDictionary(quotes):
     return freq_dic
 
 
-def loadGlove(filename=script_dir + "/glove/glove.6B.100d.txt"):
+def loadGlove(filename=current_dir + "/glove/glove.6B.100d.txt"):
     f = open(filename, 'r', encoding='utf-8')
     model = {}
     counter = 0
@@ -108,10 +109,10 @@ def filterKeywords(quote):
     return words
 
 def getQuoteForInput(input, model):
-    quotes = loadQuotes(script_dir + "/poems/wiseoldsayings.json")
+    quotes = loadQuotes(current_dir + "/qoutes/wiseoldsayings.json")
     input = filterKeywords(input)
     if full_dataset:
-        quotes.extend(loadQuotes(script_dir + "/poems/quoteland.json"))
+        quotes.extend(loadQuotes(current_dir + "/qoutes/quoteland.json"))
 
     freq_dic = getDictionary(quotes)
     best_vectors = []

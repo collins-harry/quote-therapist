@@ -57,7 +57,7 @@ def getQoutes(soup, author):
 
 
 def writeJSON(all_poems, name):
-    with open("poems/" + name + ".json", "w") as f:
+    with open("qoutes/" + name + ".json", "w") as f:
         json.dump(all_poems, f)
 
 

@@ -4,7 +4,7 @@ import json
 import numpy as np
 from time import sleep
 from string import punctuation
-from keywords.get_keywords import get_keywords
+from qoute_functions.get_keywords import get_keywords
 from nltk.corpus import stopwords
 from quote_functions.wordnet import create_synset, compare_similiarity
 import nltk
@@ -55,9 +55,9 @@ def getSimiliarity(input, quote):
 
 
 def getQuoteForInput(input):
-    quotes = loadQuotes("poems/wiseoldsayings.json")
+    quotes = loadQuotes("qoutes/wiseoldsayings.json")
     if full_dataset:
-        quotes.extend(loadQuotes("poems/quoteland.json"))
+        quotes.extend(loadQuotes("qoutes/quoteland.json"))
 
     best_vectors = []
     for index, quote in enumerate(quotes):

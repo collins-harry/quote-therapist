@@ -4,7 +4,7 @@ import json
 import numpy as np
 from time import sleep
 from string import punctuation
-from keywords.get_keywords import get_keywords
+from qoute_functions.get_keywords import get_keywords
 from nltk.corpus import stopwords
 import nltk
 import pickle
@@ -91,9 +91,9 @@ def getDocvectors(quotes, model):
         return vectors
 
 def getQuoteForInput(input, model):
-    quotes = loadQuotes("poems/wiseoldsayings.json")
+    quotes = loadQuotes("qoutes/wiseoldsayings.json")
     if full_dataset:
-        quotes.extend(loadQuotes("poems/quoteland.json"))
+        quotes.extend(loadQuotes("qoutes/quoteland.json"))
 
     vectors = getDocvectors(quotes, model)
 
