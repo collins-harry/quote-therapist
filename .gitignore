@@ -105,5 +105,8 @@ venv.bak/
 
 # other
 glove
-poems/wiseoldsayings.json
+qoutes/wiseoldsayings.json
 
+# vim 
+.swp
+.swo
