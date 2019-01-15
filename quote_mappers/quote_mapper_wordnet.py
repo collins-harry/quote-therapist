@@ -4,7 +4,7 @@ import json
 import numpy as np
 from time import sleep
 from string import punctuation
-from qoute_functions.get_keywords import get_keywords
+from quote_functions.get_keywords import get_keywords
 from nltk.corpus import stopwords
 from quote_functions.wordnet import create_synset, compare_similiarity
 import nltk
@@ -69,7 +69,6 @@ def getQuoteForInput(input):
 
     best_vectors.sort(key=lambda x: x[1])
     return best_vectors[-1][0]
-
 
 quote = "I am going to the grocery store"
 print(getQuoteForInput(quote))

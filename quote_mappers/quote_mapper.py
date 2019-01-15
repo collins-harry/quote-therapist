@@ -4,7 +4,7 @@ import json
 import numpy as np
 from time import sleep
 from string import punctuation
-from qoute_functions.get_keywords import get_keywords
+from quote_functions.get_keywords import get_keywords
 from nltk.corpus import stopwords
 import nltk
 import pickle
@@ -16,6 +16,11 @@ stopwords = set(stopwords.words('english'))
 
 dimensions = 100
 full_dataset = False
+
+def main():
+    input_quote = input('quote: ')
+    output_quote = getQuoteForInput(input_quote, loadGlove)
+    print(output_quote)
 
 def loadGlove(filename = "glove/glove.6B.100d.txt"):
     f = open(filename, 'r')
@@ -108,3 +113,5 @@ def getQuoteForInput(input, model):
     best_vectors.sort(key=lambda x: x[1])
     return [x[0] for x in best_vectors[:4]]
 
+if __name__ == '__main__':
+ 
