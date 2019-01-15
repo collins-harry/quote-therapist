@@ -12,7 +12,7 @@ nltk.download('universal_tagset')
 #print(f'word, tags (universal): {wordtags_universal}')
 #wordtags_treebank = nltk.pos_tag(words)
 
-def get_keywords(text, keyword_tags = ['NOUN'], wordnet = False, stopwords = False):
+def get_keywords(text, keyword_tags = ['NOUN'], wordnet = False, stop_words = False):
     """returns: an array of all words with specified pos_tags 
     params: 
         text -- string 
@@ -22,7 +22,7 @@ def get_keywords(text, keyword_tags = ['NOUN'], wordnet = False, stopwords = Fal
     tagged_words = nltk.pos_tag(words, tagset='universal')
     
     # using stopwords method of getting keywords
-    if stopwords:
+    if stop_words == True:
         stopwords = set(stopwords.words('english'))
         keywords = [x for x in text.lower().split() if x not in stopwords]
         return keywords
