@@ -16,14 +16,15 @@ stopwords = set(stopwords.words('english'))
 
 dimensions = 100
 full_dataset = False
+current_dir = os.getcwd()
 
 def main():
     input_quote = input('quote: ')
-    output_quote = getQuoteForInput(input_quote, loadGlove)
+    output_quote = getQuoteForInput(input_quote, loadGlove())
     print(output_quote)
 
-def loadGlove(filename = "glove/glove.6B.100d.txt"):
-    f = open(filename, 'r')
+def loadGlove(filename = "/glove/glove.6B.100d.txt"):
+    f = open(current_dir + filename, 'r')
     model = {}
     counter = 0
     for line in f:
@@ -96,9 +97,9 @@ def getDocvectors(quotes, model):
         return vectors
 
 def getQuoteForInput(input, model):
-    quotes = loadQuotes("quotes/wiseoldsayings.json")
+    quotes = loadQuotes(current_dir + "/quotes/wiseoldsayings.json")
     if full_dataset:
-        quotes.extend(loadQuotes("quotes/quoteland.json"))
+        quotes.extend(loadQuotes(current_dir + "/quotes/quoteland.json"))
 
     vectors = getDocvectors(quotes, model)
 
@@ -114,4 +115,4 @@ def getQuoteForInput(input, model):
     return [x[0] for x in best_vectors[:4]]
 
 if __name__ == '__main__':
- 
+    main()

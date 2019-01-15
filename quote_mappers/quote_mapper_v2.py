@@ -24,7 +24,7 @@ full_dataset = False
 
 def main():
     input_quote = input('quote: ')
-    output_quote = getQuoteForInput(input_quote)
+    output_quote = getQuoteForInput(input_quote, loadGlove())
     print(output_quote)
     
     
@@ -48,7 +48,7 @@ def getDictionary(quotes):
 
 
 def loadGlove(filename= "/glove/glove.6B.100d.txt"):
-    f = open(filename, 'r', encoding='utf-8')
+    f = open(current_dir + filename, 'r', encoding='utf-8')
     model = {}
     counter = 0
     for line in f:
@@ -117,10 +117,10 @@ def filterKeywords(quote):
     return words
 
 def getQuoteForInput(input, model):
-    quotes = loadQuotes( "/quotes/wiseoldsayings.json")
+    quotes = loadQuotes(current_dir + "/quotes/wiseoldsayings.json")
     input = filterKeywords(input)
     if full_dataset:
-        quotes.extend(loadQuotes( "/quotes/quoteland.json"))
+        quotes.extend(loadQuotes(current_dir + "/quotes/quoteland.json"))
 
     freq_dic = getDictionary(quotes)
     best_vectors = []
