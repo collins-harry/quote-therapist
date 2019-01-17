@@ -21,9 +21,8 @@ def append_images_to_json(json_filename):
         quotes_json = quotes_json[:2]
     for idx, each_dict in enumerate(quotes_json):
         quote = each_dict["poem"]
-        keywords = get_keywords(quote,['NOUN'])
+        keywords = get_keywords(quote)
         keywords = " ".join(keywords).replace(',','').replace('.','')
-        print("KEYYYYYYYYYYYY", keywords)
         arguments = {"keywords":keywords,
                      "limit":4,
                      "size":"medium",
