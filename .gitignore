@@ -110,3 +110,5 @@ qoutes/wiseoldsayings.json
 # vim 
 .swp
 .swo
+.py.swp
+.py.swo

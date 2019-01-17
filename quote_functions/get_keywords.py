@@ -1,7 +1,7 @@
 import nltk
 from nltk import word_tokenize
 from nltk.corpus import stopwords
-from wordnet import create_synset, compare_similiarity
+# from wordnet import create_synset, compare_similiarity
 from nltk.corpus import wordnet
 import random as rand 
 
