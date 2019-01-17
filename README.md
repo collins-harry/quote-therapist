@@ -36,6 +36,7 @@ conda install gensim
 ## Wish
 
 - [ ] integrate quotes (small, medium, large)
+- [ ] make suitable for phone (set max-width and remove percentages)
 
 ## Other todo
 

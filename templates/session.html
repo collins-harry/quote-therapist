@@ -12,15 +12,17 @@
 
   <body style="font-family: 'Roboto', sans-serif; font-size: 20px; background-color: #E5FCC2">
 
-    <div class="message_holder" style="position: absolute; margin: auto; top: 0; right: 0; bottom: 0; left: 0; width: 50%; height: 75%; background-color: #9DE0AD; border-radius: 3px">
-		<!-- <h3 style='color: #FFFFFF;font-size: 30px;position: absolute; top: 10%; left: 30%; margin: 0 0 0 -200px'>Hey, I'm Eliza! What's your issue?</h3> -->
-		<div style="color: #594F4F"><b>Eliza</b> Hey, I'm Eliza! What's your issue?</div>
-	    <form action="" method="POST" style="position: absolute; bottom: 0; left: 50%; margin: 0 0 0 -200px">
-	      <input type="text" class="username" placeholder="Username"/>
-	      <input type="text" class="message" placeholder="Message"/>
-	      <input type="submit" value="Send"/>
-	    </form>											  	
-	</div>
+    <div class "contained" style="position: absolute; margin: auto; top: 0; right: 0; bottom: 0; left: 0; width: 50%; height: 75%; background-color: #9DE0AD; border-radius: 3px">
+      <div class="message_holder" style="position: absolute; margin: auto; bottom:30px; top:0px; overflow-y: scroll; width: 100%">
+      <!-- <h3 style='color: #FFFFFF;font-size: 30px;position: absolute; top: 10%; left: 30%; margin: 0 0 0 -200px'>Hey, I'm Eliza! What's your issue?</h3> -->
+        <div style="color: #594F4F"><b>Eliza</b> Hey, I'm Eliza! What's your issue?</div>
+      </div>
+
+      <form action="" method="POST" style="position: absolute; text-align: center; bottom: 0; margin: auto; width: 100%; padding-bottom: 5px">
+        <input type="text" style="width: 65%" class="message" placeholder="Message"/>
+        <input type="submit" value="Send"/>
+      </form>											  	
+    <div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -31,9 +33,9 @@
         socket.emit( 'my event', {
           data: 'User Connected'
         } )
+      let user_name = "User"
         var form = $( 'form' ).on( 'submit', function( e ) {
           e.preventDefault()
-          let user_name = $( 'input.username' ).val()
           let user_input = $( 'input.message' ).val()
           socket.emit( 'my event', {
             user_name : user_name,
