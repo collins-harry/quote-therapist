@@ -2,6 +2,14 @@ from flask import Flask, render_template
 from flask_socketio import SocketIO
 from eliza import analyze
 import quote_mappers.quote_mapper as quote_mapper
+import threading
+
+# configs
+eliza_messages = 1
+database_size = 'medium'
+
+
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'vnkdjnfjknfl1232#'
@@ -12,7 +20,6 @@ model = quote_mapper.loadGlove()
 
 def main():
     socketio.run(app, debug=False)
-    
 
 @app.route('/')
 def sessions():
@@ -30,10 +37,11 @@ def handle_my_custom_event(json, model=model, methods=['GET', 'POST']):
         message_list += json['message'] + ' ' 
         global message_count
         message_count += 1
-        print(message_count)
+
         if message_count == 3:
             message_count = 0
-            eliza_msg = quote_mapper.getQuoteForInput(message_list, model)
+            eliza_msg = quote_mapper.getQuote(message_list, model)
+            message_list = ''
         else:
             eliza_msg = analyze(json['message'])
 

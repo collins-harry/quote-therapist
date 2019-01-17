@@ -20,7 +20,7 @@ current_dir = os.getcwd()
 
 def main():
     input_quote = input('quote: ')
-    output_quote = getQuoteForInput(input_quote, loadGlove())
+    output_quote = getQuote(input_quote, loadGlove())
     print(output_quote)
 
 def loadGlove(filename = "/glove/glove.6B.100d.txt"):
@@ -96,7 +96,7 @@ def getDocvectors(quotes, model):
 
         return vectors
 
-def getQuoteForInput(input, model):
+def getQuote(input, model):
     quotes = loadQuotes(current_dir + "/quotes/wiseoldsayings.json")
     if full_dataset:
         quotes.extend(loadQuotes(current_dir + "/quotes/quoteland.json"))
@@ -112,7 +112,8 @@ def getQuoteForInput(input, model):
         best_vectors.append([quote, dist])
 
     best_vectors.sort(key=lambda x: x[1])
-    return [x[0] for x in best_vectors[:4]]
+    quotes = [x[0] for x in best_vectors[:1]]
+    return random.sample(quotes, 1)
 
 if __name__ == '__main__':
     main()
