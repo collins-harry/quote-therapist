@@ -11,10 +11,10 @@ conda install gensim
 
 ## App
 
-- [.] build app 
+- [ ] build app 
   - [X] Eliza  
   - [ ] scrollbar
-  - [ ] focus on message box
+  - [X] focus on message box
   - [X] integrate semi-data
   - [ ] image placement
 - [ ] put on heroku
@@ -39,4 +39,4 @@ conda install gensim
 
 ## Other todo
 
-- [ ] remove username box
+- [X] remove username box
