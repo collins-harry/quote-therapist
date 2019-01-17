@@ -24,7 +24,7 @@ full_dataset = False
 
 def main():
     input_quote = input('quote: ')
-    output_quote = getQuoteForInput(input_quote, loadGlove())
+    output_quote = getQuote(input_quote, loadGlove())
     print(output_quote)
     
     
@@ -116,7 +116,7 @@ def filterKeywords(quote):
     words = ' '.join([x for x in get_keywords(quote, ["NOUN", "ADJ", "ADV"])])
     return words
 
-def getQuoteForInput(input, model):
+def getQuote(input, model):
     quotes = loadQuotes(current_dir + "/quotes/wiseoldsayings.json")
     input = filterKeywords(input)
     if full_dataset:

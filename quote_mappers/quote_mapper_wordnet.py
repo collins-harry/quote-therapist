@@ -54,7 +54,7 @@ def getSimiliarity(input, quote):
     return similiarity
 
 
-def getQuoteForInput(input):
+def getQuote(input):
     quotes = loadQuotes("quotes/wiseoldsayings.json")
     if full_dataset:
         quotes.extend(loadQuotes("quotes/quoteland.json"))
@@ -71,5 +71,5 @@ def getQuoteForInput(input):
     return best_vectors[-1][0]
 
 quote = "I am going to the grocery store"
-print(getQuoteForInput(quote))
+print(getQuote(quote))
 

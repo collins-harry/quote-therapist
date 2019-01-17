@@ -18,6 +18,7 @@ conda install gensim
   - [X] integrate semi-data
   - [ ] image placement
 - [ ] put on heroku
+  - [ ] put glove on heroku
 
 ## SEMI
 

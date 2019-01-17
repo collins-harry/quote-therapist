@@ -2,7 +2,6 @@ from flask import Flask, render_template
 from flask_socketio import SocketIO
 from eliza import analyze
 import quote_mappers.quote_mapper as quote_mapper
-import threading
 
 # configs
 eliza_messages = 1
