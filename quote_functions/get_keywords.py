@@ -2,13 +2,11 @@ import nltk
 from nltk import word_tokenize
 from nltk.corpus import stopwords
 # from wordnet import create_synset, compare_similiarity
-from nltk.corpus import wordnet
+# from nltk.corpus import wordnet
 import random as rand 
 
-nltk.download("punkt")
 nltk.download("wordnet")
 nltk.download('stopwords')
-nltk.download('averaged_perceptron_tagger')
 nltk.download('universal_tagset')
 
 #string = sys.argv[1]

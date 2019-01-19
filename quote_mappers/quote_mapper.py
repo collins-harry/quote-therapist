@@ -24,7 +24,12 @@ def main():
     print(output_quote)
 
 def loadGlove(filename = "/glove/glove.6B.100d.txt"):
-    f = open(current_dir + filename, 'r')
+    # f = open(current_dir + filename, 'r')
+    f = list(open('glove/glove_100d_1.txt', 'r'))
+    f += list(open('glove/glove_100d_2.txt', 'r'))
+    f += list(open('glove/glove_100d_3.txt', 'r'))
+    f += list(open('glove/glove_100d_4.txt', 'r'))
+    
     model = {}
     counter = 0
     for line in f:
