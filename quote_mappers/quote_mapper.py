@@ -24,7 +24,7 @@ def main():
     print(output_quote)
 
 def loadGlove(filename = "/glove/glove.6B.100d.txt"):
-    f = open(current_dir + filename, 'r')
+    f = open(current_dir + filename, 'r', encoding="utf8")
     model = {}
     counter = 0
     for line in f:
@@ -113,7 +113,7 @@ def getQuote(input, model):
 
     best_vectors.sort(key=lambda x: x[1])
     quotes = [x[0] for x in best_vectors[:1]]
-    return random.sample(quotes, 1)
+    return random.sample(quotes, 1)[0]
 
 if __name__ == '__main__':
     main()
