@@ -12,7 +12,7 @@ nltk.download('averaged_perceptron_tagger')
 nltk.download('universal_tagset')
 
 #string = sys.argv[1]
-#print(f'word, tags (treebank): {wordtags_treebank}')
+#print(f'word, tags (treebank): {wordtags_treebank}'t)
 #print(f'word, tags (universal): {wordtags_universal}')
 #wordtags_treebank = nltk.pos_tag(words)
 
