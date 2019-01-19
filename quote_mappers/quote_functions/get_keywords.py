@@ -1,9 +1,8 @@
+import random as rand 
 import nltk
 from nltk import word_tokenize
 from nltk.corpus import stopwords
-from wordnet import create_synset, compare_similiarity
 from nltk.corpus import wordnet
-import random as rand 
 
 nltk.download("punkt")
 nltk.download("wordnet")

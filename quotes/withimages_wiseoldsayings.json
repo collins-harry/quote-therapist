@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 [{"poem": "Acting deals with very delicate emotions. It is not putting up a mask. Each time an actor acts he does not hide; he exposes himself", "author": "Rodney Dangerfield", "category": "acting", "image": "/images/0/"}, {"poem": "Acting is magical. Change your look and your attitude, and you can be anyone", "author": "Alicia Witt", "category": "acting", "image": "/images/1/"}]
+=======
+[{"poem": "Acting deals with very delicate emotions. It is not putting up a mask. Each time an actor acts he does not hide; he exposes himself", "author": "Rodney Dangerfield", "category": "acting", "image": "/static/images/wiseoldsayings/0/"}, {"poem": "Acting is magical. Change your look and your attitude, and you can be anyone", "author": "Alicia Witt", "category": "acting", "image": "/static/images/wiseoldsayings/1/"}]
+>>>>>>> 4896ba9db773e31d3bd6e9305e3dbb0a1c7e23a7
