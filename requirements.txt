@@ -18,7 +18,7 @@ Jinja2==2.10
 jmespath==0.9.3
 MarkupSafe==1.1.0
 mkl-fft
-mkl-random==1.0.2
+mkl-random
 numpy==1.15.4
 pycparser==2.19
 pyOpenSSL==18.0.0
