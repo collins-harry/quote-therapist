@@ -51,9 +51,7 @@ def plot_cluster_sizes(cluster_num, name='foo.png'):
 
 def get_model(name='kmeans', n_clusters=50, new_model=False):
     filename = str(n_clusters) + '_cluster_kmeans.p'
-    print(filename)
     path = os.getcwd() + '/models/' + filename
-    print(f'path is: {path}')
 
     if os.path.isfile(path) and not new_model:
         'using pretrained model'
