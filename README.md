@@ -41,3 +41,8 @@ conda install gensim
 ## Other todo
 
 - [X] remove username box
+
+
+## Other
+
+saved docvectors and which ones to use are in qoute_mapper.py (getDocvectors())

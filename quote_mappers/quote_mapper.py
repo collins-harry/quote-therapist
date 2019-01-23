@@ -76,9 +76,9 @@ def getDocVector(quote, model):
 def getDocvectors(quotes, model):
     #path = "models/docvectors.p"
     if full_dataset:
-        path = "models/" + str(dimensions) + "_docvectors_large.p"
+        path = "models/docvectors_large.p"
     else:
-        path = "models/" + str(dimensions) + "_docvectors.p"
+        path = "models/docvectors.p"
 
     if os.path.isfile(path):
         with open(path, "rb") as f:
