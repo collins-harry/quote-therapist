@@ -9,7 +9,7 @@ inertia_ : sum squared distances to cluster centre
 
 transform(X)
 
-
+model.cluster_centers_ (shape - n_clusters, n_features)
 '''
 from sklearn.cluster import KMeans
 import numpy as np
@@ -17,12 +17,15 @@ from quote_mappers.quote_mapper import getDocvectors
 import matplotlib.pyplot as plt
 import os
 import pickle
+import csv
 
 
 def main():
     model, labels = get_model(n_clusters = 10, new_model=False, return_labels=True)    
 
     print(labels)
+    create_cluster_csv(model)
+    
 
 
 def import_docvectors():
@@ -96,6 +99,15 @@ def get_model(name='kmeans', n_clusters=50, new_model=False, return_labels=False
             return best_model, best_model_labels
         else:
             return best_model
+
+def create_cluster_csv(model, name='clusters.csv'):
+    clusters = model.cluster_centers_
+    with open(name, 'w') as f:
+        writer = csv.writer(f)
+        writer.writerows(clusters)
+        print('clusters written to clusters.csv')
+
+
 
 
 if __name__ == '__main__':
