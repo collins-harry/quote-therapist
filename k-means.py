@@ -18,15 +18,32 @@ import matplotlib.pyplot as plt
 import os
 import pickle
 import csv
+from sklearn.decomposition import PCA
+
+
 
 
 def main():
     model, labels = get_model(n_clusters = 10, new_model=False, return_labels=True)    
+    create_reduced_cluster_csv(model, 2)
 
-    print(labels)
-    create_cluster_csv(model)
+    # print(labels)
+    # create_cluster_csv(model)
+
+def create_reduced_cluster_csv(model, n_dimension, name='redu_cluster.csv'):
+    clusters = model.cluster_centers_
+    reduced_clusters = get_reduced_vectors(clusters, n_dimension=n_dimension)
+    with open(name, 'w') as f:
+        writer = csv.writer(f)
+        writer.writerows(reduced_clusters)
+    print('clusters written to clusters.csv')
+     
+
+def get_reduced_vectors(vectors, n_dimension=3):
+    pca_model = PCA(n_components=n_dimension)
+    reduced_vectors = pca_model.fit_transform(vectors)
+    return reduced_vectors
     
-
 
 def import_docvectors():
     try:
@@ -106,8 +123,6 @@ def create_cluster_csv(model, name='clusters.csv'):
         writer = csv.writer(f)
         writer.writerows(clusters)
         print('clusters written to clusters.csv')
-
-
 
 
 if __name__ == '__main__':
