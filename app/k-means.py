@@ -24,11 +24,12 @@ from sklearn.decomposition import PCA
 
 
 def main():
-    model, labels = get_model(n_clusters = 10, new_model=False, return_labels=True)    
+    model, labels = get_model(n_clusters = 10, new_model=True, return_labels=True)    
     create_reduced_cluster_csv(model, 2)
 
     # print(labels)
     # create_cluster_csv(model)
+
 
 def create_reduced_cluster_csv(model, n_dimension, name='redu_cluster.csv'):
     clusters = model.cluster_centers_

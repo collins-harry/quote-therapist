@@ -81,10 +81,12 @@ def getDocvectors(quotes, model):
         path = "models/docvectors.p"
 
     if os.path.isfile(path):
+        print('found pretrained docvectors')
         with open(path, "rb") as f:
             vectors = pickle.load(f)
             return vectors
     else:
+        print('creating docvectors manually')
         vectors = []
         i = 0
         for quote in quotes:
