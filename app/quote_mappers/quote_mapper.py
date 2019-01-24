@@ -1,5 +1,3 @@
-from gensim.models import Doc2Vec, Word2Vec
-from gensim.models.doc2vec import TaggedDocument
 import json
 import numpy as np
 from time import sleep
@@ -55,11 +53,6 @@ def getWordVector(word, model):
         return vector
     except:
         return None
-
-def trainDoc2Vec(quotes):
-    documents = [TaggedDocument(doc, [i]) for i, doc in enumerate(quotes)]
-    model = Doc2Vec(documents, vector_size=5, window=2, min_count=1, workers=4)
-    return model
 
 def getDocVector(quote, model):
     vectors = []
