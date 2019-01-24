@@ -73,7 +73,7 @@ def plot_cluster_sizes(cluster_num, name='foo.png'):
                 inertias[i-1] = inertia
 
     x = list(range(1, len(inertias)+1))
-    plot = plt.plot(x, inertias)
+    plt.plot(x, inertias)
     plt.savefig(os.getcwd() + '/plots/foo.png')
     print(f'plot saved to {os.getcwd()}' + f"/plots/{name}")
 
@@ -86,7 +86,6 @@ def get_model(name='kmeans', n_clusters=50, new_model=False):
 
     filename = str(n_clusters) + '_cluster_kmeans.p'
     path = os.getcwd() + '/models/' + filename
-    print('pathasdfasdfsdfasfasfasfafd', path)
 
     if os.path.isfile(path) and not new_model:
         'using pretrained model'
