@@ -104,15 +104,30 @@ def getQuote(input, model):
 
     sentence_vector = getDocVector(input, model)
 
+    closest_vectors = find_closest_vectors(sentence_vector, vectors)
+
+    quotes = [x[0] for x in closest_vectors]
+    return random.sample(quotes, 1)[0]
+
+
+def find_closest_vectors(sentence_vector, vectors, num_vectors=1, flag=False):
+    '''
+    returns closest vectors shape() = [qoute, dist, vector]
+    '''
+    if flag:
+        num_vectors += 1
+
     best_vectors = []
     for quote, vector in vectors:
         dist = np.linalg.norm(np.array(vector) - np.array(sentence_vector))
         dist += 0.005 * len(quote)
-        best_vectors.append([quote, dist])
+        best_vectors.append([quote, dist, vector])
 
     best_vectors.sort(key=lambda x: x[1])
-    quotes = [x[0] for x in best_vectors[:1]]
-    return random.sample(quotes, 1)[0]
+    return best_vectors[:num_vectors]
+
+
+
 
 if __name__ == '__main__':
     main()
