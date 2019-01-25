@@ -53,3 +53,5 @@ clustered docvectors together using k-means algorithm, chose 50 clusters.
 Attempts to use the 'elbow' method by plotting sum of squared errors (SSE) over the cluster number and looking for a kink in the curve.
 Unfortunately there was no kink implying the docvectors are not heavily clustered. 
 This is ok as our interest in clustering the data is to make the distribution and visualisations more manageable for the viewer. 
+
+https://plot.ly/matplotlib/line-charts/#setting-marker-size-in-matplotlib
