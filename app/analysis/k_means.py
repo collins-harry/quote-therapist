@@ -30,20 +30,23 @@ def main():
     # create_cluster_csv(model)
 
 
-def create_reduced_cluster_csv(model, n_dimension, name='redu_cluster.csv'):
+def create_reduced_cluster_csv(model, n_dimensions, name='redu_cluster.csv'):
     clusters = model.cluster_centers_
-    reduced_clusters = get_reduced_vectors(clusters, n_dimension=n_dimension)
+    reduced_clusters = get_reduced_vectors(clusters, n_dimensions=n_dimensions)
     with open(name, 'w') as f:
         writer = csv.writer(f)
         writer.writerows(reduced_clusters)
     print('clusters written to clusters.csv')
-     
+ 
 
-def get_reduced_vectors(vectors, n_dimension=3):
-    pca_model = PCA(n_components=n_dimension)
+def get_reduced_vectors(vectors, n_dimensions=3, return_model=False):
+    pca_model = PCA(n_components=n_dimensions)
     reduced_vectors = pca_model.fit_transform(vectors)
-    return reduced_vectors
-    
+    if return_model:
+        return reduced_vectors, pca_model
+    else:
+        return reduced_vectors
+
 
 def import_docvectors():
     try:
