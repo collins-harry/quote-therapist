@@ -43,6 +43,11 @@ def handle_my_custom_event(json, model=model, methods=['GET', 'POST']):
         if message_count == 3:
             message_count = 0
             flag = 1
+            eliza_ponders = {
+                "user_name" : "Eliza",
+                "message" : 'Hmmm ...'
+              }
+            socketio.emit('my response', eliza_ponders, callback=messageReceived)
             eliza_msg = quote_mapper.getQuote(message_list, model)
             message_list = ''
         else:
