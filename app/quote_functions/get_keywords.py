@@ -51,8 +51,10 @@ def get_synonyms(text, keyword_tags = ['NOUN'], word_net = True):
     
 
 if __name__ == '__main__':
-    print(get_keywords('Acting deals with very delicate emotions. It is not putting up a mask. Each time an actor acts he does not hide; he exposes himself', 
-                        keyword_tags = ['NOUN'],
-                        ))
-    get_synonyms('Acting deals with very delicate emotions. It is not putting up a mask. Each time an actor acts he does not hide; he exposes himself', keyword_tags = ['NOUN'])
+    temp = input()
+    print(get_keywords(temp))
+    # print(get_keywords('Acting deals with very delicate emotions. It is not putting up a mask. Each time an actor acts he does not hide; he exposes himself', 
+    #                     keyword_tags = ['NOUN'],
+    #                     ))
+    # get_synonyms('Acting deals with very delicate emotions. It is not putting up a mask. Each time an actor acts he does not hide; he exposes himself', keyword_tags = ['NOUN'])
 

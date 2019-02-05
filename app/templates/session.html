@@ -14,7 +14,7 @@
           <!-- <img src="{{url_for('static', filename='this.jpg')}}"/> -->
 
     <div class="contained" style="position: absolute; margin: auto; top: 0; right: 0; bottom: 0; left: 0; width: 50%; height: 75%; background-color: #9DE0AD; border-radius: 3px">
-      <div class="message_holder" style="position: absolute; margin: auto; bottom:30px; top:0px; overflow-y: scroll; width: 100%">
+      <div class="message_holder" style="position: absolute; margin: auto; bottom:30px; top:0px; overflow-y: scroll; width: 100%" id="message_holder_id">
       <!-- <h3 style='color: #FFFFFF;font-size: 30px;position: absolute; top: 10%; left: 30%; margin: 0 0 0 -200px'>Hey, I'm Eliza! What's your issue?</h3> -->
         <div style="color: #594F4F"><b>Eliza</b> Hey, I'm Eliza! What's your issue?</div>
         <!-- <img style="max-width: 65%; height: auto" src="/static/images/wiseoldsayings/1/aliciawitt1-2x.jpg"/> -->
@@ -31,6 +31,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
     <script type="text/javascript">
+	    function updateScroll(){
+	    	var element = document.getElementById("message_holder_id");
+	    	element.scrollTop = element.scrollHeight;
+		}
+
       var socket = io.connect('http://' + document.domain + ':' + location.port);
       socket.on( 'connect', function() {
         socket.emit( 'my event', {
@@ -52,14 +57,16 @@
         if( typeof msg.user_name !== 'undefined' ) {
           // $( 'h3' ).remove()
           $( 'div.message_holder' ).append( '<div style="color: #594F4F"><b>'+msg.user_name+'</b> '+msg.message+'</div>' )
+          updateScroll()
         }
       })
       socket.on( 'image handler', function( msg ) {
         console.log( msg )
         if( typeof msg.message !== '' ) {
           $( 'div.message_holder' ).append( '<img style="max-width: 65%; height: auto; display: block; margin-left: auto; margin-right: auto" src='+msg.message+'/>' )
+          updateScroll()
         }
-      })            
+      })                  
     </script>
 
   </body>

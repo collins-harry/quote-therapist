@@ -51,7 +51,7 @@ def handle_my_custom_event(json, model=model, methods=['GET', 'POST']):
             eliza_msg = quote_mapper.getQuote(message_list, model)
             message_list = ''
         else:
-            eliza_msg = analyze(json['message'])
+            eliza_msg = analyze(json['message'], version='1')
 
         eliza_says = {
             "user_name" : "Eliza",

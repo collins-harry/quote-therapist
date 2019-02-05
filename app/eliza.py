@@ -1,6 +1,6 @@
 import re
 import random
- 
+from new_eliza.eliza import Eliza
  
 reflections = {
     "am": "are",
@@ -307,12 +307,28 @@ def reflect(fragment):
     return ' '.join(tokens)
  
  
-def analyze(statement):
-    for pattern, responses in psychobabble:
-        match = re.match(pattern, statement.rstrip(".!"))
-        if match:
-            response = random.choice(responses)
-            return response.format(*[reflect(g) for g in match.groups()])
+
+def analyze(statement, version='1'):
+    '''
+    version can be either 1 or 2,
+    1 for pyEliza
+    2 for original Eliza implementation
+    '''
+    if version=='1':
+        #you are using the regex pyEliza version
+        for pattern, responses in psychobabble:
+            match = re.match(pattern, statement.rstrip(".!"))
+            if match:
+                response = random.choice(responses)
+                return response.format(*[reflect(g) for g in match.groups()])
+
+    elif version=='2':
+        elizA = Eliza()
+        elizA.load('new_eliza/doctor.txt')
+        return elizA.respond(statement)
+    else:
+        raise Exception(f'eliza analyse, wrong version arguement passed, should be either 1 or 2. was actually: {version}')
+
  
  
 def main():
