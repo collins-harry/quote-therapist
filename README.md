@@ -31,7 +31,7 @@ The scrapers store the quotes in JSON format (/app/quotes/).
 #### Image scraper
 
 The image scraper (/app/scrapers/scraper_images.py) finds images for each quote and stores them in (/app/static/images/). 
-Before starting the function checks if the quote already has images downloaded by checking for an image attribute in the quote's JSON entry.
+Before starting, the function checks if the quote already has images downloaded by checking for an image attribute in the quote's JSON entry.
 
 If not present the quote is decomposed into keywords which are used to query google images with safe search enabled.
 The scraper stores the images on the hard disk and adds their location as an attribute called *image* in the quote's JSON entry.
@@ -40,7 +40,7 @@ The scraper stores the images on the hard disk and adds their location as an att
 
 ### Collecting user data
 
-User data is collected to personalise the harvested quotes and images. (data is only stored as long as the connection is open, and deleted after every quote, image pair is displayed on-screen.
+User data is collected to personalise the harvested quotes and images. (data is only stored as long as the connection is open, and deleted after every quote & image pair is displayed on-screen.
 
 The user has a short conversation with an Eliza chatbot [1] which we modified to be more questioning and to trigger on the second half of 'double sentences'. 
 The user messages are then used to filter the inspirational content for the user. Therefore the inspirational content will be relevant to the conversation and to the user's current thoughts.
