@@ -60,7 +60,7 @@ All the functions are found in (/app/quote_mappers/), (app/quote_functions/get_k
 ![Filtering the inspirational content for the user (part 2)](Documentation/diagrams/filter2.png)
 
 #### Notes
-The word vectors are the pre-trained embeddings from GloVe by Stanford. [4] (/app/glove/)
+The word vectors are the pre-trained embeddings from GloVe by Stanford [4] (/app/glove/).
 The document vector bank is actually created in advance, unless it has been deleted (/app/models/docvectors.p)
 
 [1] https://web.stanford.edu/class/linguist238/p36-weizenabaum.pdf 
